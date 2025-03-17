@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 98%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 142 72% 48%;
+    --primary-foreground: 0 0% 9%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 142 72% 48%;
+    --radius: 1rem;
+  }
+
+  .dark {
+    --background: 220 29% 10%;
+    --foreground: 0 0% 98%;
+    --card: 224 30% 12%;
+    --card-foreground: 0 0% 98%;
+    --popover: 224 30% 12%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 142 72% 48%;
+    --primary-foreground: 0 0% 9%;
+    --secondary: 224 30% 15%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 224 30% 15%;
+    --muted-foreground: 217.9 10.6% 64.9%;
+    --accent: 224 30% 15%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 224 30% 15%;
+    --input: 224 30% 15%;
+    --ring: 142 72% 48%;
+  }
+}
+
+body {
+  @apply bg-background text-foreground;
+}
+
+.sidebar-item {
+  @apply flex items-center space-x-3 text-gray-400 hover:text-primary transition-colors px-4 py-2 rounded-lg;
+}
+
+.sidebar-item.active {
+  @apply bg-secondary text-primary;
+}
+
+.featured-card {
+  @apply relative overflow-hidden rounded-3xl aspect-[1.8/1];
+}
+
+.featured-card img {
+  @apply absolute inset-0 w-full h-full object-cover;
+}
+
+.featured-card::after {
+  content: '';
+  @apply absolute inset-0 bg-gradient-to-t from-black/80 to-transparent;
+}
+
+.artist-card {
+  @apply relative overflow-hidden rounded-full aspect-square;
+  background: linear-gradient(45deg, hsl(var(--primary)), hsl(var(--secondary)));
+}
+
+.artist-card img {
+  @apply absolute inset-0 w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity;
+}
